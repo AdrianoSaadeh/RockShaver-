@@ -9,14 +9,14 @@ describe('login spec', () => {
       .should('be.visible')
       .and('have.text', 'Seus dados')
 
-    cy.get('input[name="nome"]').type('Adriano QA')
+    cy.get('#nome').type('Adriano QA')
     cy.get('input[name="email"]').type('adrianoqa@gmail.com')
 
     cy.contains('button[type="submit"]', 'Continuar').click()
 
     cy.get('.user-name')
       .should('be.visible')
-      .and('have.text', 'Adriano QA')
+      .and('have.text', 'Olá, Adriano')
 
     cy.get('.user-email')
       .should('be.visible')
