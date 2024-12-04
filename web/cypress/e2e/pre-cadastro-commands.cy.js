@@ -1,7 +1,13 @@
 describe('login spec', () => {
   it('Deve realizar o pre-cadastro do cliente com sucesso', () => {
-    cy.startPreRegistration('Adriano QA', 'adrianoqa@gmail.com')
-    cy.verifyPreRegistered('Adriano', 'adrianoqa@gmail.com')
+
+    const user = {
+      fullname: 'Adriano QA',
+      email: 'adrianoqa@gmail.com'
+    }
+
+    cy.startPreRegistration(user)
+    cy.verifyPreRegistered(user)
   })
 
   it('Campos obrigatórios', () => {
@@ -12,12 +18,22 @@ describe('login spec', () => {
 
 
   it('Não deve realizar o pre-cadastro apenas informando o primeiro nome', () => {
-    cy.startPreRegistration('Adriano', 'adrianoqa@gmail.com')
+    const user = {
+      fullname: 'Adriano',
+      email: 'adrianoqa@gmail.com'
+    }
+
+    cy.startPreRegistration(user)
     cy.alertHave('Nome Completo', 'Informe seu nome completo.')
   })
 
   it('Não deve realizar o pre-cadastro apenas informando email invalido', () => {
-    cy.startPreRegistration('Adriano QA', 'adrianoqa.com.br')
+    const user = {
+      fullname: 'Adriano QA',
+      email: 'www.teste.com.br'
+    }
+
+    cy.startPreRegistration(user)
     cy.alertHave('E-mail', 'O e-mail inserido é inválido.')
   })
 })
