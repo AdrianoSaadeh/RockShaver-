@@ -2,7 +2,7 @@ describe('login spec', () => {
   it('Deve realizar o pre-cadastro do cliente com sucesso', () => {
 
     const user = {
-      fullname: 'Adriano QA',
+      nome: 'Adriano QA',
       email: 'adrianoqa@gmail.com'
     }
 
@@ -19,7 +19,7 @@ describe('login spec', () => {
 
   it('Não deve realizar o pre-cadastro apenas informando o primeiro nome', () => {
     const user = {
-      fullname: 'Adriano',
+      nome: 'Adriano',
       email: 'adrianoqa@gmail.com'
     }
 
@@ -29,7 +29,7 @@ describe('login spec', () => {
 
   it('Não deve realizar o pre-cadastro apenas informando email invalido', () => {
     const user = {
-      fullname: 'Adriano QA',
+      nome: 'Adriano QA',
       email: 'www.teste.com.br'
     }
 
