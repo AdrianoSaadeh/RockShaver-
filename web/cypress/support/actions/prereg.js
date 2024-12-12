@@ -21,11 +21,11 @@ class PreReg {
     }
 
     verify(firstName, email) {
-        cy.get('.user-name')
+        cy.get('.usuario-nome')
             .should('be.visible')
             .and('have.text', 'Olá, ' + firstName)
 
-        cy.get('.user-email')
+        cy.get('.usuario-email')
             .should('be.visible')
             .and('have.text', email)
     }
