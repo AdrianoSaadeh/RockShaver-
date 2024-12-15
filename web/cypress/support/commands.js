@@ -27,7 +27,26 @@
 import './actions/agendamento.action'
 import './actions/precadastro.action'
 
-
+Cypress.Commands.add('agendamentoApi', (agendamentos) => {
+    cy.request({
+        method: 'POST',
+        url: 'http://localhost:3333/api/agendamentos',
+        headers: {
+            'Content-type': 'application/json',
+            'authorization': 'Bearer 3a8a9b8fae87baf503e7c5fe5b97fd72'
+        },
+        body: {
+            nomeCliente: agendamentos.usuario.nome,
+            emailCliente: agendamentos.usuario.email,
+            data: agendamentos.data,
+            hora: agendamentos.hora,
+            matricula: agendamentos.profissional.matricula,
+            codigoServico: agendamentos.servico.codigo
+        }
+    }).then((response) => {
+        expect(response.status).to.eq(201)
+    })
+})
 
 
 
