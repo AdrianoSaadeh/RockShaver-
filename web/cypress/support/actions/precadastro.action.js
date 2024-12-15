@@ -34,6 +34,15 @@ Cypress.Commands.add('verifyPreRegistered', (user) => {
     })
 })
 
+Cypress.Commands.add('preCadastroLS', (usuario) => {
+    cy.window().then((win) => {
+        win.localStorage.setItem('usuario', JSON.stringify(usuario))
+        cy.visit('/')
+        cy.contains(usuario.email)
+            .should('be.visible')
+    })
+})
+
 Cypress.Commands.add('alertHave', (fieldname, text) => {
     cy.contains('label', fieldname)
         .parent()
