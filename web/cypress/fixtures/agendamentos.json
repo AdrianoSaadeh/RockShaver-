@@ -32,5 +32,22 @@
             "nome": "James Travis",
             "email": "jametrt@gmail.com"
         }
+    },
+    "conflito": {
+        "data": "14/12/2024",
+        "dia": "14",
+        "hora": "16:00",
+        "profissional": {
+            "nome": "Jimi",
+            "matricula": 1006
+        },
+        "servico": {
+            "codigo": 1,
+            "descricao": "Corte"
+        },
+        "usuario": {
+            "nome": "David Nice",
+            "email": "davidnice@gmail.com"
+        }
     }
 }
