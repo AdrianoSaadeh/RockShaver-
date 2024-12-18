@@ -6,7 +6,7 @@ describe('Agendamento', () => {
         cy.fixture('agendamentos').then((agendamentos) => {
             this.agendamentos = agendamentos
         })
-        cy.intercept('GET', 'http://localhost:3333/api/calendario', {
+        cy.intercept('GET', '**/api/calendario', {
             statusCode: 200,
             body: calendario
         }).as('getCalendario')
